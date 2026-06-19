@@ -329,7 +329,7 @@ section{position:relative;overflow:hidden}
  <!-- 3 · INTERLUDE (visual beat) -->
  <section class="interlude" id="interlude">
   <div class="il-glow"></div>
-  <img class="il-img" src="assets/01-towers.webp" alt="" onerror="this.style.display='none'">
+  <img class="il-img" alt="" aria-hidden="true">
   <div class="il-text">
    <span class="il-eyebrow">with the blessings of the divine</span>
    <span class="il-line">two souls, one journey</span>
@@ -397,6 +397,9 @@ section{position:relative;overflow:hidden}
 <script>
 (function(){
  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+ /* reuse the embedded hero temple for the interlude (no external file) */
+ (function(){var il=document.querySelector('.il-img'),hg=document.querySelector('.l-gopuram img');if(il&&hg)il.src=hg.src;})();
 
  /* intro loader — irises open into the hero */
  (function(){var ld=document.getElementById('loader');if(!ld)return;
