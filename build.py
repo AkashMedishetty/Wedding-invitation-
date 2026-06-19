@@ -87,7 +87,7 @@ HTML = r"""<!DOCTYPE html>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Marcellus&family=Mukta:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
 <style>
 :root{
- --green-deep:#16271c;--green:#284f37;--gold:#b08d3e;--gold-light:#d4af6a;--gold-bright:#ecd8a4;
+ --green-deep:#16271c;--green:#284f37;--gold:#98741e;--gold-light:#d4af6a;--gold-bright:#ecd8a4;
  --cream:#faf5e9;--cream-deep:#f1e6cd;--paper:#fbf7ee;--ink:#22301f;--ink-soft:#4a5a48;
  --stage:clamp(320px,100vw,480px);--ease:cubic-bezier(.22,1,.36,1);
  --serif:"Cormorant Garamond",Georgia,serif;--label:"Marcellus",serif;--body:"Mukta",system-ui,sans-serif;--script:"Pinyon Script",cursive;}
@@ -110,7 +110,7 @@ section{position:relative;overflow:hidden}
 .label{font-family:var(--label);text-transform:uppercase;letter-spacing:.42em;font-size:.62rem;color:var(--gold)}
 .rule{width:54px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:18px auto}
 .center{text-align:center}
-.gold-text{background:linear-gradient(100deg,#9c7a30,#ecd8a4 38%,#caa44e 56%,#9c7a30 92%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;text-shadow:none}
+.gold-text{background:linear-gradient(100deg,#5e4413,#8a6820 40%,#a87f2e 55%,#6b4e16 92%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 .flourish{display:block;width:200px;max-width:62%;height:auto;margin:18px auto;color:var(--gold)}
 .corner{position:absolute;width:44px;height:44px;color:var(--gold)}
 .corner.tl{top:9px;left:9px}.corner.tr{top:9px;right:9px;transform:scaleX(-1)}
@@ -130,14 +130,18 @@ section{position:relative;overflow:hidden}
 .l-arch{width:106%;bottom:30%;z-index:2}
 .l-cows{left:auto;right:2%;transform:none;width:40%;bottom:17%;z-index:3}
 .l-garden{width:108%;bottom:3%;z-index:4}
-.l-couple{width:48%;bottom:7%;z-index:6}
+.l-couple{left:50%;bottom:4vh;width:auto;height:56vh;z-index:6}
+.l-couple img{width:auto;height:100%}
 .l-fore{width:108%;bottom:-20%;z-index:7}
 .haze{position:absolute;inset:0;z-index:2;pointer-events:none;
  background:linear-gradient(180deg,transparent 38%,rgba(244,236,216,.30) 60%,transparent 78%)}
 .cream-wash{position:absolute;inset:0;z-index:5;background:var(--paper);opacity:0;pointer-events:none}
 .hero-invoc{position:absolute;top:5.5%;left:0;right:0;display:flex;justify-content:center;gap:clamp(12px,4.5vw,28px);z-index:8}
 .hero-invoc span{font-family:var(--label);font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--green-deep);text-shadow:0 1px 6px rgba(255,255,255,.7)}
-.hero-title{position:absolute;left:0;right:0;bottom:24%;text-align:center;z-index:8;padding:0 26px}
+.hero-intro{position:absolute;top:14%;left:0;right:0;text-align:center;z-index:8;padding:0 30px}
+.hero-intro .msg{font-family:var(--script);font-size:clamp(1.7rem,8.5vw,2.4rem);color:#7d5e18;line-height:1.05;text-shadow:0 1px 12px rgba(255,255,255,.8)}
+.hero-intro .sub{margin-top:10px;font-family:var(--label);letter-spacing:.26em;text-transform:uppercase;font-size:.58rem;color:#5a4a36;text-shadow:0 1px 6px rgba(255,255,255,.72)}
+.hero-title{position:absolute;left:0;right:0;bottom:25%;text-align:center;z-index:8;padding:0 26px}
 .hero-title::before{content:"";position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);width:122%;height:160%;z-index:-1;
  background:radial-gradient(56% 50% at 50% 50%,rgba(251,247,238,.88),rgba(251,247,238,.4) 44%,transparent 72%);filter:blur(3px)}
 .hero-title .emblem{width:52px;height:52px;margin:0 auto 12px;filter:drop-shadow(0 2px 8px rgba(255,255,255,.6))}
@@ -145,14 +149,15 @@ section{position:relative;overflow:hidden}
 .hero-title .amp{display:block;font-family:var(--script);font-size:.62em;margin:.02em 0;line-height:1}
 .hero-title .hero-tagline{margin-top:12px;font-family:var(--script);font-size:clamp(1.5rem,7vw,2rem);color:var(--gold);line-height:1;text-shadow:0 1px 8px rgba(255,255,255,.6)}
 .hero-title .when{margin-top:14px;font-family:var(--label);letter-spacing:.26em;text-transform:uppercase;font-size:.64rem;color:var(--ink-soft);text-shadow:0 1px 8px rgba(255,255,255,.7)}
-.scrollcue{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);z-index:9;opacity:.55}
-.scrollcue i{position:relative;display:block;width:1px;height:42px;background:rgba(176,141,62,.32);overflow:hidden}
+.scrollcue{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);z-index:9;opacity:.72;display:flex;flex-direction:column;align-items:center;gap:8px}
+.scrollcue span{font-family:var(--label);letter-spacing:.34em;text-transform:uppercase;font-size:.46rem;color:#5a4a36;text-shadow:0 1px 6px rgba(255,255,255,.7)}
+.scrollcue i{position:relative;display:block;width:1px;height:40px;background:rgba(152,116,30,.35);overflow:hidden}
 .scrollcue i::after{content:"";position:absolute;left:-1.5px;top:0;width:4px;height:4px;border-radius:50%;background:var(--gold);animation:cuedot 2.6s var(--ease) infinite}
 @keyframes cuedot{0%{transform:translateY(-8px);opacity:0}25%{opacity:1}90%{opacity:.6}100%{transform:translateY(42px);opacity:0}}
 
 /* INVITATION */
 .invite{background:linear-gradient(180deg,var(--paper),var(--cream-deep));padding:clamp(40px,9vw,58px) clamp(16px,4.5vw,26px)}
-.invite-card{position:relative;isolation:isolate;border:1px solid rgba(176,141,62,.45);padding:clamp(46px,11vw,66px) clamp(24px,6vw,34px);text-align:center;overflow:hidden;background:rgba(255,253,247,.45)}
+.invite-card{position:relative;isolation:isolate;border:1px solid rgba(152,116,30,.45);padding:clamp(44px,10vw,60px) clamp(24px,6vw,34px) clamp(58px,14vw,84px);text-align:center;overflow:hidden;background:rgba(255,253,247,.45)}
 .invite-card::before{content:"";position:absolute;inset:8px;border:1px solid rgba(176,141,62,.2);pointer-events:none}
 .invite-watermark{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:90%;max-width:280px;height:auto;opacity:.07;pointer-events:none;z-index:-1}
 .invite-copy{font-family:var(--serif);font-size:clamp(1.32rem,5.6vw,1.62rem);line-height:1.75;color:var(--ink);max-width:28ch;margin:0 auto}
@@ -214,8 +219,8 @@ section{position:relative;overflow:hidden}
 .credit:hover{border-color:var(--gold-light)}
 
 @media(prefers-reduced-motion:reduce){
- .reveal{opacity:1;transform:none;transition:none}.scrollcue i{animation:none}
- .hero{height:100svh}.cream-wash{display:none}
+ .reveal{opacity:1;transform:none;transition:none}.scrollcue i::after{animation:none}
+ .hero{height:100svh}.cream-wash,.hero-intro,.l-couple{display:none}
  .layer{transform:translateX(-50%)!important}.l-sky,.l-cows{transform:none!important}}
 </style>
 </head>
@@ -239,12 +244,16 @@ section{position:relative;overflow:hidden}
     <div class="cream-wash"></div>
    </div>
    <div class="hero-invoc"><span>Srirasthu</span><span>Shubhamasthu</span><span>Avighnamasthu</span></div>
+   <div class="hero-intro">
+    <div class="msg">together with our families</div>
+    <div class="sub">we joyfully invite you to celebrate</div>
+   </div>
    <div class="hero-title">
     <h1 class="gold-text">Sai Divya<span class="amp">weds</span>Sai Ramakrishna</h1>
     <div class="when">Friday · 3<sup>rd</sup> July 2026</div>
     <div class="hero-tagline">we invite you to share in our joy</div>
    </div>
-   <div class="scrollcue"><i></i></div>
+   <div class="scrollcue"><span>scroll</span><i></i></div>
   </div>
  </section>
 
@@ -343,6 +352,7 @@ section{position:relative;overflow:hidden}
   /* SIGNATURE — pinned: the courtyard parts and the Lords rise into the invitation */
   var htl=gsap.timeline({defaults:{ease:'none'},scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom bottom',scrub:.7}});
   htl.to('.hero-invoc',{opacity:1,y:0,duration:.12,ease:'power2.out'},0)
+     .to('.hero-intro',{opacity:0,y:-16,duration:.16,ease:'power1.in'},0)
      /* phase 1 — parallax drift, depth becomes visible */
      .to('.l-sky img',{yPercent:-7,scale:1.06,duration:.55},0)
      .to('.l-gopuram',{yPercent:-5,duration:.55},0)
@@ -360,7 +370,7 @@ section{position:relative;overflow:hidden}
      .to('.l-fore',{yPercent:78,opacity:0,duration:.5,ease:'power1.in'},.42)
      .to('.l-sky img',{opacity:0,duration:.42},.5)
      .to('.cream-wash',{opacity:1,duration:.42},.5)
-     .to('.l-couple',{yPercent:-86,scale:.58,duration:.62,ease:'power2.inOut'},.4)
+     .to('.l-couple',{yPercent:-82,scale:.55,duration:.62,ease:'power2.inOut'},.4)
      /* phase 3 — names settle beneath the risen Lords */
      .to('.hero-title',{opacity:1,y:0,duration:.3,ease:'power2.out'},.74);
  }
