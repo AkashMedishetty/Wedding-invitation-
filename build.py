@@ -16,6 +16,7 @@ SRC = {
     "peacock":"1781826125615_image.png",
     "cows":   "1781826156578_image.png",
     "couple": "1781826216951_image.png",
+    "divine": "1781849695638_image.png",
 }
 
 def key_white(im, thresh=238, erode=1, feather=0.8, pad=6):
@@ -69,6 +70,9 @@ for name,w,q in plan:
 
 couple=fit(key_white(Image.open(U+SRC["couple"])), h=780)
 d,uri["couple"]=webp_b64(couple,84); open(ASSETS+"couple.webp","wb").write(d)
+
+divine=fit(key_white(Image.open(U+SRC["divine"]), thresh=228), w=680)
+d,uri["divine"]=webp_b64(divine,86); open(ASSETS+"divine.webp","wb").write(d)
 
 for k in uri: print(k, round(len(uri[k])/1366), "KB(b64)")
 
@@ -241,8 +245,8 @@ section{position:relative;overflow:hidden}
 
 /* INTERLUDE */
 .interlude{position:relative;height:100svh;overflow:hidden;background:radial-gradient(130% 100% at 50% 14%,#27432f,#0c1610 64%)}
-.il-glow{position:absolute;left:50%;top:30%;transform:translate(-50%,-50%);width:135%;height:72%;background:radial-gradient(closest-side,rgba(212,175,106,.26),transparent 70%);pointer-events:none}
-.il-img{position:absolute;left:50%;bottom:30%;transform:translateX(-50%);width:80%;max-width:360px;height:auto;filter:drop-shadow(0 24px 56px rgba(0,0,0,.55));z-index:1;will-change:transform}
+.il-glow{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);width:135%;height:72%;background:radial-gradient(closest-side,rgba(212,175,106,.26),transparent 70%);pointer-events:none}
+.il-img{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);width:76%;max-width:340px;height:auto;filter:drop-shadow(0 24px 50px rgba(0,0,0,.5));z-index:1;will-change:transform}
 .il-text{position:absolute;left:0;right:0;bottom:15%;text-align:center;padding:0 32px;z-index:2}
 .il-eyebrow{display:block;font-family:var(--label);letter-spacing:.34em;text-transform:uppercase;font-size:.6rem;color:rgba(236,216,164,.72);margin-bottom:14px}
 .il-line{display:block;font-family:var(--script);font-size:clamp(2.1rem,11vw,3.1rem);color:var(--gold-light);line-height:1.05;text-shadow:0 2px 24px rgba(0,0,0,.4)}
@@ -329,7 +333,7 @@ section{position:relative;overflow:hidden}
  <!-- 3 · INTERLUDE (visual beat) -->
  <section class="interlude" id="interlude">
   <div class="il-glow"></div>
-  <img class="il-img" alt="" aria-hidden="true">
+  <img class="il-img" src="__DIVINE__" alt="Lord Venkateswara and Goddess Padmavati">
   <div class="il-text">
    <span class="il-eyebrow">with the blessings of the divine</span>
    <span class="il-line">two souls, one journey</span>
@@ -397,9 +401,6 @@ section{position:relative;overflow:hidden}
 <script>
 (function(){
  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-
- /* reuse the embedded hero temple for the interlude (no external file) */
- (function(){var il=document.querySelector('.il-img'),hg=document.querySelector('.l-gopuram img');if(il&&hg)il.src=hg.src;})();
 
  /* intro loader — irises open into the hero */
  (function(){var ld=document.getElementById('loader');if(!ld)return;
@@ -471,9 +472,10 @@ section{position:relative;overflow:hidden}
    gsap.to(ws,{yPercent:0,opacity:1,duration:.7,ease:'power3.out',stagger:.055,
     scrollTrigger:{trigger:el,start:'top 88%'}});
   });
-  /* interlude — temple drifts, blessing rises */
-  if(document.querySelector('.interlude')){
-   gsap.to('.il-img',{yPercent:-14,ease:'none',scrollTrigger:{trigger:'.interlude',start:'top bottom',end:'bottom top',scrub:1}});
+  /* interlude — emblem drifts, blessing rises */
+  if(document.querySelector('.il-img')){
+   gsap.set('.il-img',{xPercent:-50,yPercent:-50});
+   gsap.to('.il-img',{y:-46,ease:'none',scrollTrigger:{trigger:'.interlude',start:'top bottom',end:'bottom top',scrub:1}});
    gsap.from('.il-text',{opacity:0,y:30,duration:1,ease:'power2.out',scrollTrigger:{trigger:'.interlude',start:'top 62%'}});
   }
   /* muhurtham — big date pops in as the section enters */
