@@ -221,6 +221,7 @@ section{position:relative;overflow:hidden}
 .host-grp+.host-grp{margin-top:28px}
 .role{font-family:var(--label);letter-spacing:.24em;text-transform:uppercase;font-size:.58rem;color:var(--gold);margin-bottom:10px}
 .nm{font-family:var(--serif);font-size:clamp(1.3rem,6vw,1.7rem);color:var(--green-deep);line-height:1.4}
+.nm+.nm{margin-top:6px}
 
 /* BENEDICTION (footer) */
 .bene{background:linear-gradient(180deg,var(--green-deep),#0f1c14);color:var(--cream);text-align:center;padding-bottom:50px}
@@ -402,7 +403,7 @@ section{position:relative;overflow:hidden}
  <section class="hosts pad">
   <span class="label kin" style="display:block;margin-bottom:30px">With warm regards</span>
   <div class="host-grp reveal delay-1"><div class="role">Invited by</div><div class="nm kin">Smt. &amp; Sri Allakula Jyothi — Thirupathi</div></div>
-  <div class="host-grp reveal delay-2"><div class="role">Co-invited by</div><div class="nm kin">Vidarth &amp; Ajith Sai</div></div>
+  <div class="host-grp reveal delay-2"><div class="role">Co-invited by</div><div class="nm kin">Smt. &amp; Sri Pothurajula Sai Deepthi — Praveen</div><div class="nm kin">Vidarth &amp; Ajith Sai</div></div>
  </section>
 
  <!-- 7 · BENEDICTION (footer) -->
