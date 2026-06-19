@@ -183,11 +183,10 @@ section{position:relative;overflow:hidden}
 .knot svg{width:100%;height:100%;display:block}
 .union-emblem{display:block;width:54px;height:54px;margin:8px auto 0}
 
-/* MUHURTHAM — pinned cinematic beat */
-.muhurtham{position:relative;height:200vh;background:linear-gradient(180deg,var(--green),var(--green-deep))}
-.mu-sticky{position:sticky;top:0;height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden;color:var(--cream)}
-.mu-glow{position:absolute;inset:0;background:radial-gradient(120% 75% at 50% 36%,rgba(212,175,106,.18),transparent 62%);pointer-events:none}
-.mu-content{position:relative;z-index:1;width:100%;max-width:var(--stage);padding:0 28px;text-align:center}
+/* MUHURTHAM — immersive date */
+.muhurtham{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--green),var(--green-deep));color:var(--cream);padding:clamp(70px,15vw,100px) 0;text-align:center}
+.mu-glow{position:absolute;inset:0;background:radial-gradient(120% 70% at 50% 40%,rgba(212,175,106,.16),transparent 62%);pointer-events:none}
+.mu-content{position:relative;z-index:1;width:100%;max-width:var(--stage);margin:0 auto;padding:0 28px}
 .mu-l{display:block;font-family:var(--label);letter-spacing:.42em;text-transform:uppercase;font-size:.62rem;color:var(--gold-light);margin-bottom:26px}
 .mu-d{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(5rem,28vw,8.5rem);line-height:.82;color:var(--gold-bright);letter-spacing:-.02em}
 .mu-my{font-family:var(--label);letter-spacing:.4em;text-transform:uppercase;font-size:clamp(.82rem,4.2vw,1.1rem);color:var(--cream);margin-top:16px}
@@ -232,7 +231,6 @@ section{position:relative;overflow:hidden}
 @media(prefers-reduced-motion:reduce){
  .reveal{opacity:1;transform:none;transition:none}.scrollcue i::after{animation:none}
  .hero{height:100svh}.cream-wash,.hero-intro,.l-couple{display:none}
- .muhurtham{height:auto}.mu-sticky{position:static;height:auto;padding:64px 0}
  .layer{transform:translateX(-50%)!important}.l-sky,.l-cows{transform:none!important}}
 </style>
 </head>
@@ -295,24 +293,22 @@ section{position:relative;overflow:hidden}
   </div>
  </section>
 
- <!-- 3 · SUMUHURTHAM (pinned cinematic beat) -->
+ <!-- 3 · SUMUHURTHAM -->
  <section class="muhurtham" id="muhurtham">
-  <div class="mu-sticky">
-   <div class="mu-glow"></div>
-   <div class="mu-content">
-    <span class="mu-l">Sumuhurtham</span>
-    <span class="mu-d">03</span>
-    <div class="mu-my">July · 2026</div>
-    <div class="mu-day">Friday</div>
-    <div class="mu-rule"></div>
-    <div class="mu-time">at 8:12 in the morning</div>
-    <div class="mu-stars">Shravana Nakshatram · Karkataka Lagnam</div>
-    <div class="countdown" id="countdown">
-     <div class="cd"><b id="cd-d">--</b><span>Days</span></div>
-     <div class="cd"><b id="cd-h">--</b><span>Hours</span></div>
-     <div class="cd"><b id="cd-m">--</b><span>Min</span></div>
-     <div class="cd"><b id="cd-s">--</b><span>Sec</span></div>
-    </div>
+  <div class="mu-glow"></div>
+  <div class="mu-content">
+   <span class="mu-l reveal">Sumuhurtham</span>
+   <span class="mu-d">03</span>
+   <div class="mu-my reveal delay-1">July · 2026</div>
+   <div class="mu-day reveal delay-1">Friday</div>
+   <div class="mu-rule reveal delay-2"></div>
+   <div class="mu-time reveal delay-2">at 8:12 in the morning</div>
+   <div class="mu-stars reveal delay-2">Shravana Nakshatram · Karkataka Lagnam</div>
+   <div class="countdown reveal delay-3" id="countdown">
+    <div class="cd"><b id="cd-d">--</b><span>Days</span></div>
+    <div class="cd"><b id="cd-h">--</b><span>Hours</span></div>
+    <div class="cd"><b id="cd-m">--</b><span>Min</span></div>
+    <div class="cd"><b id="cd-s">--</b><span>Sec</span></div>
    </div>
   </div>
  </section>
@@ -407,21 +403,10 @@ section{position:relative;overflow:hidden}
    gsap.to(ws,{yPercent:0,opacity:1,duration:.7,ease:'power3.out',stagger:.055,
     scrollTrigger:{trigger:el,start:'top 88%'}});
   });
-  /* muhurtham — pinned date + countdown assemble as you scroll through it */
-  if(document.querySelector('.mu-d')){
-   gsap.set('.mu-l,.mu-my,.mu-day,.mu-time,.mu-stars,.countdown',{opacity:0,y:28});
-   gsap.set('.mu-d',{opacity:0,y:22,scale:.72});
-   gsap.set('.mu-rule',{opacity:0,scaleX:0});
-   gsap.timeline({scrollTrigger:{trigger:'#muhurtham',start:'top top',end:'bottom bottom',scrub:.6}})
-    .to('.mu-l',{opacity:1,y:0,duration:.4},.02)
-    .to('.mu-d',{opacity:1,y:0,scale:1,duration:.9,ease:'power2.out'},.08)
-    .to('.mu-my',{opacity:1,y:0,duration:.5},.5)
-    .to('.mu-day',{opacity:1,y:0,duration:.5},.6)
-    .to('.mu-rule',{opacity:1,scaleX:1,duration:.5},.72)
-    .to('.mu-time',{opacity:1,y:0,duration:.5},.82)
-    .to('.mu-stars',{opacity:1,y:0,duration:.5},.96)
-    .to('.countdown',{opacity:1,y:0,duration:.6},1.1);
-  }
+  /* muhurtham — big date pops in as the section enters */
+  if(document.querySelector('.mu-d'))
+   gsap.from('.mu-d',{scale:.7,opacity:0,duration:.9,ease:'power3.out',
+    scrollTrigger:{trigger:'.muhurtham',start:'top 72%'}});
   gsap.to('.union-emblem',{rotation:360,transformOrigin:'50% 50%',duration:90,repeat:-1,ease:'none'});
  }
 
