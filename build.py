@@ -132,7 +132,7 @@ section{position:relative;overflow:hidden}
 .l-garden{width:108%;bottom:3%;z-index:4}
 .l-couple{left:50%;bottom:4vh;width:auto;height:56vh;z-index:6}
 .l-couple img{width:auto;height:100%}
-.l-fore{width:108%;bottom:-20%;z-index:7}
+.l-fore{width:94%;bottom:-26%;z-index:7}
 .haze{position:absolute;inset:0;z-index:2;pointer-events:none;
  background:linear-gradient(180deg,transparent 38%,rgba(244,236,216,.30) 60%,transparent 78%)}
 .cream-wash{position:absolute;inset:0;z-index:5;background:var(--paper);opacity:0;pointer-events:none}
@@ -145,7 +145,7 @@ section{position:relative;overflow:hidden}
 .hero-title::before{content:"";position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);width:122%;height:160%;z-index:-1;
  background:radial-gradient(56% 50% at 50% 50%,rgba(251,247,238,.88),rgba(251,247,238,.4) 44%,transparent 72%);filter:blur(3px)}
 .hero-title .emblem{width:52px;height:52px;margin:0 auto 12px;filter:drop-shadow(0 2px 8px rgba(255,255,255,.6))}
-.hero-title h1{font-family:var(--serif);font-weight:500;color:var(--green-deep);line-height:1.02;font-size:clamp(2.5rem,13vw,3.6rem);text-shadow:0 2px 16px rgba(251,247,238,.85)}
+.hero-title h1{font-family:var(--serif);font-weight:500;color:var(--green-deep);line-height:1.08;font-size:clamp(1.95rem,10.5vw,3.1rem);white-space:nowrap;text-shadow:0 2px 16px rgba(251,247,238,.85)}
 .hero-title .amp{display:block;font-family:var(--script);font-size:.62em;margin:.02em 0;line-height:1}
 .hero-title .hero-tagline{margin-top:12px;font-family:var(--script);font-size:clamp(1.5rem,7vw,2rem);color:var(--gold);line-height:1;text-shadow:0 1px 8px rgba(255,255,255,.6)}
 .hero-title .when{margin-top:14px;font-family:var(--label);letter-spacing:.26em;text-transform:uppercase;font-size:.64rem;color:var(--ink-soft);text-shadow:0 1px 8px rgba(255,255,255,.7)}
@@ -162,13 +162,13 @@ section{position:relative;overflow:hidden}
 .invite-watermark{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:90%;max-width:280px;height:auto;opacity:.07;pointer-events:none;z-index:-1}
 .invite-copy{font-family:var(--serif);font-size:clamp(1.32rem,5.6vw,1.62rem);line-height:1.75;color:var(--ink);max-width:28ch;margin:0 auto}
 .bride-pre{display:block;margin-top:24px;font-family:var(--label);letter-spacing:.3em;text-transform:uppercase;font-size:.6rem;color:var(--gold)}
-.bride-name{font-family:var(--serif);font-weight:600;font-size:clamp(2.1rem,9vw,2.9rem);line-height:1.12;text-wrap:balance;margin-top:8px;padding-bottom:.08em}
+.bride-name{font-family:var(--serif);font-weight:600;font-size:clamp(2.1rem,9vw,2.9rem);line-height:1.12;white-space:nowrap;margin-top:8px;padding-bottom:.08em}
 
 /* UNION */
-.union{background:linear-gradient(180deg,var(--cream-deep),var(--paper));text-align:center}
+.union{background:linear-gradient(180deg,var(--cream-deep),var(--paper));text-align:center;padding:clamp(40px,9vw,58px) clamp(16px,4.5vw,26px)}
 .name-block{margin:0 auto;max-width:30ch}
 .pre{display:block;font-family:var(--label);letter-spacing:.24em;text-transform:uppercase;font-size:.6rem;color:var(--gold);margin-bottom:8px}
-.big{font-family:var(--serif);font-size:clamp(2rem,8.5vw,2.7rem);font-weight:500;line-height:1.14;text-wrap:balance;color:var(--green-deep)}
+.big{font-family:var(--serif);font-size:clamp(1.85rem,8vw,2.5rem);font-weight:500;line-height:1.14;white-space:nowrap;color:var(--green-deep)}
 .sub{display:block;font-size:.92rem;color:var(--ink-soft);font-style:italic;margin-top:12px;line-height:1.6;font-family:var(--serif)}
 .knot{margin:30px auto;width:72px;height:72px}
 .knot svg{width:100%;height:100%;display:block}
@@ -259,7 +259,7 @@ section{position:relative;overflow:hidden}
 
  <!-- 2 · INVITATION -->
  <section class="invite">
-  <div class="invite-card reveal">
+  <div class="invite-card">
    <img class="invite-watermark" src="__PEACOCK__" alt="" aria-hidden="true">
    <svg class="corner tl" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M1 39V11Q1 1 11 1H39" stroke="currentColor" stroke-width="1"/></svg>
    <svg class="corner tr" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M1 39V11Q1 1 11 1H39" stroke="currentColor" stroke-width="1"/></svg>
@@ -274,15 +274,21 @@ section{position:relative;overflow:hidden}
  </section>
 
  <!-- 3 · UNION -->
- <section class="union pad center" id="union">
-  <span class="label reveal">United in matrimony</span>
-  <svg class="union-emblem reveal delay-1" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-   <circle cx="32" cy="32" r="30" stroke="#b08d3e" stroke-width="1"/><circle cx="32" cy="32" r="21" stroke="#b08d3e" stroke-width=".6" opacity=".55"/>
-   <path d="M32 13q9.5 9.5 0 19q-9.5-9.5 0-19Z" fill="#caa44e"/><path d="M32 51q9.5-9.5 0-19q-9.5 9.5 0 19Z" fill="#caa44e"/>
-   <path d="M13 32q9.5-9.5 19 0q-9.5 9.5-19 0Z" fill="#caa44e" opacity=".85"/><path d="M51 32q-9.5-9.5-19 0q9.5 9.5 19 0Z" fill="#caa44e" opacity=".85"/>
-   <circle cx="32" cy="32" r="3.2" fill="#b08d3e"/></svg>
-  <div class="name-block groom reveal delay-1" style="margin-top:24px"><span class="pre">With</span><span class="big">Sai Ramakrishna</span>
-   <span class="sub">Son of Smt. &amp; Sri Chinthala Sukrutha — Ramesh Babu, Mancherial</span></div>
+ <section class="union" id="union">
+  <div class="invite-card">
+   <svg class="corner tl" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M1 39V11Q1 1 11 1H39" stroke="currentColor" stroke-width="1"/></svg>
+   <svg class="corner tr" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M1 39V11Q1 1 11 1H39" stroke="currentColor" stroke-width="1"/></svg>
+   <svg class="corner bl" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M1 39V11Q1 1 11 1H39" stroke="currentColor" stroke-width="1"/></svg>
+   <svg class="corner br" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M1 39V11Q1 1 11 1H39" stroke="currentColor" stroke-width="1"/></svg>
+   <span class="label">United in matrimony</span>
+   <svg class="union-emblem" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+    <circle cx="32" cy="32" r="30" stroke="#98741e" stroke-width="1"/><circle cx="32" cy="32" r="21" stroke="#98741e" stroke-width=".6" opacity=".55"/>
+    <path d="M32 13q9.5 9.5 0 19q-9.5-9.5 0-19Z" fill="#b8923f"/><path d="M32 51q9.5-9.5 0-19q-9.5 9.5 0 19Z" fill="#b8923f"/>
+    <path d="M13 32q9.5-9.5 19 0q-9.5 9.5-19 0Z" fill="#b8923f" opacity=".85"/><path d="M51 32q-9.5-9.5-19 0q9.5 9.5 19 0Z" fill="#b8923f" opacity=".85"/>
+    <circle cx="32" cy="32" r="3.2" fill="#98741e"/></svg>
+   <div class="name-block groom" style="margin-top:22px"><span class="pre">With</span><span class="big">Sai Ramakrishna</span>
+    <span class="sub">Son of Smt. &amp; Sri Chinthala Sukrutha — Ramesh Babu, Mancherial</span></div>
+  </div>
  </section>
 
  <!-- 4 · SUMUHURTHAM -->
@@ -373,6 +379,18 @@ section{position:relative;overflow:hidden}
      .to('.l-couple',{yPercent:-82,scale:.55,duration:.62,ease:'power2.inOut'},.4)
      /* phase 3 — names settle beneath the risen Lords */
      .to('.hero-title',{opacity:1,y:0,duration:.3,ease:'power2.out'},.74);
+
+  /* ---- scroll-driven life after the hero ---- */
+  gsap.utils.toArray('.invite-card').forEach(function(c){
+   gsap.fromTo(c,{y:56,opacity:0,scale:.985},{y:0,opacity:1,scale:1,ease:'power2.out',
+    scrollTrigger:{trigger:c,start:'top 90%',end:'top 56%',scrub:.7}});});
+  gsap.fromTo('.date-hero .d',{scale:.82},{scale:1,ease:'none',
+   scrollTrigger:{trigger:'.muhurtham',start:'top 80%',end:'top 42%',scrub:.6}});
+  if(document.querySelector('.cd b'))ScrollTrigger.batch('.cd b',{start:'top 90%',
+   onEnter:function(els){gsap.from(els,{y:20,opacity:0,stagger:.09,duration:.55,ease:'back.out(1.6)'});}});
+  gsap.utils.toArray('.rule').forEach(function(r){r.style.transformOrigin='center';
+   gsap.fromTo(r,{scaleX:0},{scaleX:1,ease:'none',scrollTrigger:{trigger:r,start:'top 92%',end:'top 66%',scrub:.5}});});
+  gsap.to('.union-emblem',{rotation:360,transformOrigin:'50% 50%',duration:90,repeat:-1,ease:'none'});
  }
 
  /* countdown to 3 Jul 2026 08:12 IST */
