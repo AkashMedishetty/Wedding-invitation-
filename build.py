@@ -232,6 +232,22 @@ section{position:relative;overflow:hidden}
 .credit{display:inline-block;margin-top:20px;font-family:var(--label);letter-spacing:.2em;text-transform:uppercase;font-size:.56rem;color:var(--gold-light);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .4s var(--ease)}
 .credit:hover{border-color:var(--gold-light)}
 
+/* DESKTOP GATE — invitation is for phones only */
+#desktop-gate{display:none;position:fixed;inset:0;z-index:99999;background:radial-gradient(120% 90% at 50% 18%,#fbf7ee,#ece3d1);color:var(--green-deep);align-items:center;justify-content:center;text-align:center;padding:40px}
+.dg-inner{max-width:430px}
+.dg-flourish{display:block;width:150px;height:auto;color:var(--gold);margin:0 auto 24px}
+.dg-eyebrow{font-family:var(--label);letter-spacing:.36em;text-transform:uppercase;font-size:.6rem;color:var(--gold)}
+.dg-names{font-family:var(--serif);font-weight:500;font-size:clamp(1.8rem,3vw,2.4rem);margin-top:12px;line-height:1.3}
+.dg-names span{font-family:var(--script);color:var(--gold);font-size:1.25em;vertical-align:-.06em;margin:0 .06em}
+.dg-msg{font-family:var(--serif);font-size:1.06rem;color:#5b5142;line-height:1.65;margin:22px auto 26px;max-width:32ch}
+.dg-qr{width:190px;height:190px;border:1px solid rgba(152,116,30,.3);border-radius:12px;padding:10px;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.dg-foot{margin-top:24px;font-family:var(--label);letter-spacing:.22em;text-transform:uppercase;font-size:.56rem;color:var(--gold)}
+@media (hover:hover) and (pointer:fine){
+ .stage,#loader,.bgm{display:none!important}
+ #desktop-gate{display:flex!important}
+ html,body{overflow:hidden;height:100%}
+}
+
 /* LOADER */
 #loader{position:fixed;inset:0;z-index:9999;background:var(--cream);display:flex;align-items:center;justify-content:center;transition:opacity .9s var(--ease),transform .9s var(--ease)}
 #loader.gone{opacity:0;transform:scale(1.04);pointer-events:none}
@@ -274,6 +290,16 @@ section{position:relative;overflow:hidden}
 </div>
 <div class="ambient"></div>
 <canvas id="petals"></canvas>
+<div id="desktop-gate">
+ <div class="dg-inner">
+  <svg class="dg-flourish" viewBox="0 0 240 18" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="1" stroke-linecap="round"><path d="M40 9H98"/><path d="M142 9H200"/></g><g fill="currentColor"><path d="M98 9q7-6 13 0q-7 6-13 0Z"/><path d="M142 9q-7-6-13 0q7 6 13 0Z"/><circle cx="120" cy="9" r="3"/><circle cx="34" cy="9" r="1.6"/><circle cx="206" cy="9" r="1.6"/></g><circle cx="120" cy="9" r="6.5" stroke="currentColor" stroke-width="1" fill="none"/></svg>
+  <div class="dg-eyebrow">the wedding of</div>
+  <div class="dg-names">Sai Divya <span>&amp;</span> Sai Ramakrishna</div>
+  <p class="dg-msg">This invitation was crafted for the phone. Please open the link on your mobile — or scan the code below.</p>
+  <img id="dg-qr" class="dg-qr" alt="Scan to open on your phone">
+  <div class="dg-foot">3rd July 2026 · Mancherial</div>
+ </div>
+</div>
 <main class="stage">
 
  <!-- 1 · HERO — the courtyard parts, the Lords rise into the invitation -->
@@ -401,6 +427,13 @@ section{position:relative;overflow:hidden}
 <script>
 (function(){
  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ var isDesktop=matchMedia('(hover:hover) and (pointer:fine)').matches;
+
+ /* desktop gate — fill the scan code with this page's URL */
+ (function(){var qr=document.getElementById('dg-qr');if(!qr)return;
+  qr.onerror=function(){qr.style.display='none';};
+  qr.src='https://api.qrserver.com/v1/create-qr-code/?size=380x380&margin=0&data='+encodeURIComponent(location.href);})();
+ if(isDesktop)return; /* phones only past this point — no loader, music, or scroll animation on desktop */
 
  /* intro loader — irises open into the hero */
  (function(){var ld=document.getElementById('loader');if(!ld)return;
