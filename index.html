@@ -153,13 +153,46 @@ section{position:relative;overflow:hidden}
 .credit{display:inline-block;margin-top:20px;font-family:var(--label);letter-spacing:.2em;text-transform:uppercase;font-size:.56rem;color:var(--gold-light);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .4s var(--ease)}
 .credit:hover{border-color:var(--gold-light)}
 
+/* LOADER */
+#loader{position:fixed;inset:0;z-index:9999;background:var(--cream);display:flex;align-items:center;justify-content:center;transition:opacity .9s var(--ease),transform .9s var(--ease)}
+#loader.gone{opacity:0;transform:scale(1.04);pointer-events:none}
+.ld-inner{text-align:center;padding:0 30px}
+.ld-flourish{display:block;width:130px;height:auto;margin:0 auto 22px;color:var(--gold)}
+.ld-names{font-family:var(--serif);font-weight:500;font-size:clamp(1.5rem,7vw,2rem);color:var(--green-deep);line-height:1.35}
+.ld-names span{font-family:var(--script);color:var(--gold);font-size:1.25em;display:inline-block;margin:0 .08em;vertical-align:-.05em}
+.ld-bar{width:120px;height:1px;background:rgba(152,116,30,.22);margin:26px auto 0;overflow:hidden}
+.ld-bar i{display:block;height:100%;width:38%;background:var(--gold);animation:ldbar 1.5s var(--ease) infinite}
+@keyframes ldbar{0%{transform:translateX(-120%)}100%{transform:translateX(330%)}}
+
+/* INTERLUDE */
+.interlude{position:relative;height:100svh;overflow:hidden;background:radial-gradient(130% 100% at 50% 14%,#27432f,#0c1610 64%)}
+.il-glow{position:absolute;left:50%;top:30%;transform:translate(-50%,-50%);width:135%;height:72%;background:radial-gradient(closest-side,rgba(212,175,106,.26),transparent 70%);pointer-events:none}
+.il-img{position:absolute;left:50%;bottom:30%;transform:translateX(-50%);width:80%;max-width:360px;height:auto;filter:drop-shadow(0 24px 56px rgba(0,0,0,.55));z-index:1;will-change:transform}
+.il-text{position:absolute;left:0;right:0;bottom:15%;text-align:center;padding:0 32px;z-index:2}
+.il-eyebrow{display:block;font-family:var(--label);letter-spacing:.34em;text-transform:uppercase;font-size:.6rem;color:rgba(236,216,164,.72);margin-bottom:14px}
+.il-line{display:block;font-family:var(--script);font-size:clamp(2.1rem,11vw,3.1rem);color:var(--gold-light);line-height:1.05;text-shadow:0 2px 24px rgba(0,0,0,.4)}
+
+/* BGM TOGGLE */
+.bgm{position:fixed;right:16px;bottom:16px;z-index:200;width:42px;height:42px;border-radius:50%;border:1px solid rgba(152,116,30,.5);background:rgba(251,247,238,.82);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--gold);box-shadow:0 4px 16px rgba(0,0,0,.12);transition:transform .3s var(--ease)}
+.bgm:active{transform:scale(.92)}
+.bgm svg{width:19px;height:19px}
+.bgm .on-ico{display:none}.bgm.playing .on-ico{display:block}.bgm.playing .off-ico{display:none}
+
 @media(prefers-reduced-motion:reduce){
+ #loader{display:none}.ld-bar i{animation:none}
  .reveal{opacity:1;transform:none;transition:none}.scrollcue i::after{animation:none}
  .hero{height:100svh}.cream-wash,.hero-intro,.l-couple{display:none}
  .layer{transform:translateX(-50%)!important}.l-sky,.l-cows{transform:none!important}}
 </style>
 </head>
 <body>
+<div id="loader">
+ <div class="ld-inner">
+  <svg class="ld-flourish" viewBox="0 0 240 18" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="1" stroke-linecap="round"><path d="M40 9H98"/><path d="M142 9H200"/></g><g fill="currentColor"><path d="M98 9q7-6 13 0q-7 6-13 0Z"/><path d="M142 9q-7-6-13 0q7 6 13 0Z"/><circle cx="120" cy="9" r="3"/><circle cx="34" cy="9" r="1.6"/><circle cx="206" cy="9" r="1.6"/></g><circle cx="120" cy="9" r="6.5" stroke="currentColor" stroke-width="1" fill="none"/></svg>
+  <div class="ld-names">Sai Divya <span>&amp;</span> Sai Ramakrishna</div>
+  <div class="ld-bar"><i></i></div>
+ </div>
+</div>
 <div class="ambient"></div>
 <canvas id="petals"></canvas>
 <main class="stage">
@@ -218,7 +251,17 @@ section{position:relative;overflow:hidden}
   </div>
  </section>
 
- <!-- 3 · SUMUHURTHAM -->
+ <!-- 3 · INTERLUDE (visual beat) -->
+ <section class="interlude" id="interlude">
+  <div class="il-glow"></div>
+  <img class="il-img" src="assets/01-towers.webp" alt="" onerror="this.style.display='none'">
+  <div class="il-text">
+   <span class="il-eyebrow">with the blessings of the divine</span>
+   <span class="il-line">two souls, one journey</span>
+  </div>
+ </section>
+
+ <!-- 4 · SUMUHURTHAM -->
  <section class="muhurtham" id="muhurtham">
   <div class="mu-glow"></div>
   <div class="mu-content">
@@ -268,12 +311,34 @@ section{position:relative;overflow:hidden}
 
 </main>
 
+<button id="bgm-toggle" class="bgm" aria-label="Toggle music">
+ <svg class="off-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="m16 9 5 6M21 9l-5 6"/></svg>
+ <svg class="on-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M16 8.5a5 5 0 0 1 0 7M19 5.5a9 9 0 0 1 0 13"/></svg>
+</button>
+<audio id="bgm" loop preload="none"><source src="assets/music.mp3" type="audio/mpeg"></audio>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.0.42/lenis.min.js"></script>
 <script>
 (function(){
  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+ /* intro loader — irises open into the hero */
+ (function(){var ld=document.getElementById('loader');if(!ld)return;
+  if(reduce){ld.remove();return;}
+  var done=false,go=function(){if(done)return;done=true;ld.classList.add('gone');setTimeout(function(){ld.parentNode&&ld.remove();},1000);};
+  ld.addEventListener('click',go);setTimeout(go,1900);})();
+
+ /* background music — soft, opt-out, starts on first touch */
+ (function(){var a=document.getElementById('bgm'),btn=document.getElementById('bgm-toggle');if(!a||!btn)return;
+  var playing=false,failed=false;
+  a.addEventListener('error',function(){failed=true;btn.style.display='none';});
+  function ramp(to){var v=a.volume||0,s=(to-v)/16,n=0,t=setInterval(function(){v+=s;a.volume=Math.min(1,Math.max(0,v));if(++n>=16){a.volume=to;clearInterval(t);}},45);}
+  function start(){if(failed)return;a.volume=0;var p=a.play();if(p&&p.then)p.then(function(){playing=true;btn.classList.add('playing');ramp(.38);}).catch(function(){});}
+  function stop(){a.pause();playing=false;btn.classList.remove('playing');}
+  btn.addEventListener('click',function(e){e.stopPropagation();playing?stop():start();});
+  var first=function(){if(!playing&&!failed)start();window.removeEventListener('pointerdown',first);};
+  window.addEventListener('pointerdown',first,{passive:true});})();
  var lenis=null;
  if(window.Lenis&&!reduce){lenis=new Lenis({lerp:.08,wheelMultiplier:1,touchMultiplier:1.6,smoothWheel:true});(function raf(t){lenis.raf(t);requestAnimationFrame(raf);})();if(window.ScrollTrigger)lenis.on('scroll',ScrollTrigger.update);}
 
@@ -328,6 +393,11 @@ section{position:relative;overflow:hidden}
    gsap.to(ws,{yPercent:0,opacity:1,duration:.7,ease:'power3.out',stagger:.055,
     scrollTrigger:{trigger:el,start:'top 88%'}});
   });
+  /* interlude — temple drifts, blessing rises */
+  if(document.querySelector('.interlude')){
+   gsap.to('.il-img',{yPercent:-14,ease:'none',scrollTrigger:{trigger:'.interlude',start:'top bottom',end:'bottom top',scrub:1}});
+   gsap.from('.il-text',{opacity:0,y:30,duration:1,ease:'power2.out',scrollTrigger:{trigger:'.interlude',start:'top 62%'}});
+  }
   /* muhurtham — big date pops in as the section enters */
   if(document.querySelector('.mu-d'))
    gsap.from('.mu-d',{scale:.7,opacity:0,duration:.9,ease:'power3.out',
