@@ -110,6 +110,15 @@ section{position:relative;overflow:hidden}
 .label{font-family:var(--label);text-transform:uppercase;letter-spacing:.42em;font-size:.62rem;color:var(--gold)}
 .rule{width:54px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:18px auto}
 .center{text-align:center}
+.soft{opacity:0;transition:opacity 1s var(--ease)}.soft.in{opacity:1}
+.kin .kw{display:inline-block;will-change:transform,opacity}
+.couple-name{font-family:var(--serif);font-weight:600;font-size:clamp(2.1rem,9.5vw,3rem);line-height:1.1;white-space:nowrap;margin-top:6px}
+.amp-divider{display:flex;align-items:center;justify-content:center;gap:14px;margin:22px auto 8px}
+.amp-divider .ln{height:1px;width:40px;background:linear-gradient(90deg,transparent,var(--gold))}
+.amp-divider .ln.r{background:linear-gradient(90deg,var(--gold),transparent)}
+.amp-divider .union-emblem{width:46px;height:46px;margin:0;flex:none}
+.with-label{display:block;margin-top:4px;font-family:var(--label);letter-spacing:.32em;text-transform:uppercase;font-size:.6rem;color:var(--gold)}
+.invite-sub{display:block;margin-top:14px;font-family:var(--serif);font-style:italic;font-size:1.06rem;color:#6b5d46;line-height:1.5}
 .gold-text{background:linear-gradient(100deg,#5e4413,#8a6820 40%,#a87f2e 55%,#6b4e16 92%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
 .flourish{display:block;width:200px;max-width:62%;height:auto;margin:18px auto;color:var(--gold)}
 .corner{position:absolute;width:44px;height:44px;color:var(--gold)}
@@ -257,45 +266,37 @@ section{position:relative;overflow:hidden}
   </div>
  </section>
 
- <!-- 2 · INVITATION -->
+ <!-- 2 · THE INVITATION (bride + groom, one letter) -->
  <section class="invite">
-  <div class="invite-card">
+  <div class="invite-card soft">
    <img class="invite-watermark" src="__PEACOCK__" alt="" aria-hidden="true">
    <svg class="corner tl" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M1 39V11Q1 1 11 1H39" stroke="currentColor" stroke-width="1"/></svg>
    <svg class="corner tr" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M1 39V11Q1 1 11 1H39" stroke="currentColor" stroke-width="1"/></svg>
    <svg class="corner bl" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M1 39V11Q1 1 11 1H39" stroke="currentColor" stroke-width="1"/></svg>
    <svg class="corner br" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M1 39V11Q1 1 11 1H39" stroke="currentColor" stroke-width="1"/></svg>
-   <span class="label">With the blessings of Sri Venkateswara</span>
+   <span class="label kin">With the blessings of Sri Venkateswara</span>
    <svg class="flourish" viewBox="0 0 240 18" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="1" stroke-linecap="round"><path d="M40 9H98"/><path d="M142 9H200"/></g><g fill="currentColor"><path d="M98 9q7-6 13 0q-7 6-13 0Z"/><path d="M142 9q-7-6-13 0q7 6 13 0Z"/><circle cx="120" cy="9" r="3"/><circle cx="34" cy="9" r="1.6"/><circle cx="206" cy="9" r="1.6"/></g><circle cx="120" cy="9" r="6.5" stroke="currentColor" stroke-width="1" fill="none"/></svg>
-   <p class="invite-copy">We solicit your gracious presence with family &amp; friends on the auspicious occasion of the marriage of our youngest daughter</p>
-   <span class="bride-pre">Chi · La · Sow</span>
-   <div class="bride-name gold-text">Sai Divya</div>
+   <p class="invite-copy kin">We solicit your gracious presence with family &amp; friends on the auspicious occasion of the marriage of our youngest daughter</p>
+   <span class="bride-pre kin">Chi · La · Sow</span>
+   <div class="couple-name gold-text reveal">Sai Divya</div>
+   <div class="amp-divider soft"><span class="ln"></span>
+    <svg class="union-emblem" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+     <circle cx="32" cy="32" r="30" stroke="#98741e" stroke-width="1"/><circle cx="32" cy="32" r="21" stroke="#98741e" stroke-width=".6" opacity=".55"/>
+     <path d="M32 13q9.5 9.5 0 19q-9.5-9.5 0-19Z" fill="#b8923f"/><path d="M32 51q9.5-9.5 0-19q-9.5 9.5 0 19Z" fill="#b8923f"/>
+     <path d="M13 32q9.5-9.5 19 0q-9.5 9.5-19 0Z" fill="#b8923f" opacity=".85"/><path d="M51 32q-9.5-9.5-19 0q9.5 9.5 19 0Z" fill="#b8923f" opacity=".85"/>
+     <circle cx="32" cy="32" r="3.2" fill="#98741e"/></svg>
+    <span class="ln r"></span></div>
+   <span class="with-label kin">with</span>
+   <div class="couple-name gold-text reveal">Sai Ramakrishna</div>
+   <span class="invite-sub kin">Son of Smt. &amp; Sri Chinthala Sukrutha — Ramesh Babu, Mancherial</span>
   </div>
  </section>
 
- <!-- 3 · UNION -->
- <section class="union" id="union">
-  <div class="invite-card">
-   <svg class="corner tl" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M1 39V11Q1 1 11 1H39" stroke="currentColor" stroke-width="1"/></svg>
-   <svg class="corner tr" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M1 39V11Q1 1 11 1H39" stroke="currentColor" stroke-width="1"/></svg>
-   <svg class="corner bl" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M1 39V11Q1 1 11 1H39" stroke="currentColor" stroke-width="1"/></svg>
-   <svg class="corner br" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M1 39V11Q1 1 11 1H39" stroke="currentColor" stroke-width="1"/></svg>
-   <span class="label">United in matrimony</span>
-   <svg class="union-emblem" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-    <circle cx="32" cy="32" r="30" stroke="#98741e" stroke-width="1"/><circle cx="32" cy="32" r="21" stroke="#98741e" stroke-width=".6" opacity=".55"/>
-    <path d="M32 13q9.5 9.5 0 19q-9.5-9.5 0-19Z" fill="#b8923f"/><path d="M32 51q9.5-9.5 0-19q-9.5 9.5 0 19Z" fill="#b8923f"/>
-    <path d="M13 32q9.5-9.5 19 0q-9.5 9.5-19 0Z" fill="#b8923f" opacity=".85"/><path d="M51 32q-9.5-9.5-19 0q9.5 9.5 19 0Z" fill="#b8923f" opacity=".85"/>
-    <circle cx="32" cy="32" r="3.2" fill="#98741e"/></svg>
-   <div class="name-block groom" style="margin-top:22px"><span class="pre">With</span><span class="big">Sai Ramakrishna</span>
-    <span class="sub">Son of Smt. &amp; Sri Chinthala Sukrutha — Ramesh Babu, Mancherial</span></div>
-  </div>
- </section>
-
- <!-- 4 · SUMUHURTHAM -->
+ <!-- 3 · SUMUHURTHAM -->
  <section class="muhurtham pad" id="muhurtham">
-  <div class="center"><span class="label reveal">Sumuhurtham</span><div class="rule reveal delay-1"></div></div>
-  <div class="date-hero reveal delay-1"><div class="d">03</div><div class="m">July 2026 · Friday</div></div>
-  <div class="time-line reveal delay-2">at 8:12 in the morning</div>
+  <div class="center"><span class="label kin">Sumuhurtham</span><div class="rule reveal delay-1"></div></div>
+  <div class="date-hero"><div class="d">03</div><div class="m kin">July 2026 · Friday</div></div>
+  <div class="time-line kin">at 8:12 in the morning</div>
   <div class="stars reveal delay-2">Shravana Nakshatram<br>Karkataka Lagnam</div>
   <div class="countdown reveal delay-3" id="countdown">
    <div class="cd"><b id="cd-d">--</b><span>Days</span></div><div class="cd-sep">:</div>
@@ -304,28 +305,28 @@ section{position:relative;overflow:hidden}
    <div class="cd"><b id="cd-s">--</b><span>Sec</span></div></div>
  </section>
 
- <!-- 5 · VENUE -->
+ <!-- 4 · VENUE -->
  <section class="venue pad">
-  <span class="label reveal">The Gathering</span>
-  <h3 class="reveal delay-1">M.N.R. Gardens</h3>
+  <span class="label kin">The Gathering</span>
+  <h3 class="kin">M.N.R. Gardens</h3>
   <address class="reveal delay-1">Kyathanpally 'X' Road,<br>Gadderagadi, Mancherial.</address>
-  <div class="lunch reveal delay-2">Lunch follows..</div>
+  <div class="lunch kin">Lunch follows..</div>
   <div class="actions reveal delay-2">
    <a class="btn solid" id="directions" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.3-7-11a7 7 0 1 1 14 0c0 4.7-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Get Directions</a>
    <a class="btn" id="addcal" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 9h16M8 3v4M16 3v4"/></svg>Add to Calendar</a></div>
  </section>
 
- <!-- 6 · HOSTS -->
+ <!-- 5 · HOSTS -->
  <section class="hosts pad">
-  <span class="label reveal" style="display:block;margin-bottom:30px">With warm regards</span>
-  <div class="host-grp reveal delay-1"><div class="role">Invited by</div><div class="nm">Smt. &amp; Sri Allakula Jyothi — Thirupathi</div></div>
-  <div class="host-grp reveal delay-2"><div class="role">Co-invited by</div><div class="nm">Smt. &amp; Sri Pothurajula Sai Deepthi — Praveen</div></div>
+  <span class="label kin" style="display:block;margin-bottom:30px">With warm regards</span>
+  <div class="host-grp reveal delay-1"><div class="role">Invited by</div><div class="nm kin">Smt. &amp; Sri Allakula Jyothi — Thirupathi</div></div>
+  <div class="host-grp reveal delay-2"><div class="role">Co-invited by</div><div class="nm kin">Smt. &amp; Sri Pothurajula Sai Deepthi — Praveen</div></div>
  </section>
 
  <!-- 7 · BENEDICTION (footer) -->
  <section class="bene pad">
   <svg class="flourish reveal" viewBox="0 0 240 18" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="1" stroke-linecap="round"><path d="M40 9H98"/><path d="M142 9H200"/></g><g fill="currentColor"><path d="M98 9q7-6 13 0q-7 6-13 0Z"/><path d="M142 9q-7-6-13 0q7 6 13 0Z"/><circle cx="120" cy="9" r="3"/></g><circle cx="120" cy="9" r="6.5" stroke="currentColor" stroke-width="1" fill="none"/></svg>
-  <span class="label reveal delay-1">With best compliments from</span>
+  <span class="label kin">With best compliments from</span>
   <div class="from gold-text reveal delay-1">Near &amp; Dear</div>
   <img class="bene-cows reveal delay-2" src="__COWS__" alt="" aria-hidden="true">
   <div class="sig reveal delay-2">Sai Divya &amp; Sai Ramakrishna · 03·07·2026</div>
@@ -344,7 +345,7 @@ section{position:relative;overflow:hidden}
  if(window.Lenis&&!reduce){lenis=new Lenis({lerp:.08,wheelMultiplier:1,touchMultiplier:1.6,smoothWheel:true});(function raf(t){lenis.raf(t);requestAnimationFrame(raf);})();}
 
  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.16,rootMargin:'0px 0px -8% 0px'});
- document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+ document.querySelectorAll('.reveal,.soft').forEach(function(el){io.observe(el);});
 
  if(window.gsap&&window.ScrollTrigger&&!reduce){
   gsap.registerPlugin(ScrollTrigger);
@@ -381,9 +382,19 @@ section{position:relative;overflow:hidden}
      .to('.hero-title',{opacity:1,y:0,duration:.3,ease:'power2.out'},.74);
 
   /* ---- scroll-driven life after the hero ---- */
-  gsap.utils.toArray('.invite-card').forEach(function(c){
-   gsap.fromTo(c,{y:56,opacity:0,scale:.985},{y:0,opacity:1,scale:1,ease:'power2.out',
-    scrollTrigger:{trigger:c,start:'top 90%',end:'top 56%',scrub:.7}});});
+  /* kinetic word-rise reveal — split text into words, stagger them up on scroll */
+  gsap.utils.toArray('.kin').forEach(function(el){
+   var txt=el.textContent.trim(), parts=txt.split(/\s+/);
+   el.textContent='';
+   parts.forEach(function(word,i){
+    var s=document.createElement('span');s.className='kw';s.textContent=word;el.appendChild(s);
+    if(i<parts.length-1)el.appendChild(document.createTextNode(' '));
+   });
+   var ws=el.querySelectorAll('.kw');
+   gsap.set(ws,{yPercent:60,opacity:0});
+   gsap.to(ws,{yPercent:0,opacity:1,duration:.7,ease:'power3.out',stagger:.055,
+    scrollTrigger:{trigger:el,start:'top 88%'}});
+  });
   gsap.fromTo('.date-hero .d',{scale:.82},{scale:1,ease:'none',
    scrollTrigger:{trigger:'.muhurtham',start:'top 80%',end:'top 42%',scrub:.6}});
   if(document.querySelector('.cd b'))ScrollTrigger.batch('.cd b',{start:'top 90%',
