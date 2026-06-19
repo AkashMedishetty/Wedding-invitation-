@@ -262,7 +262,8 @@ section{position:relative;overflow:hidden}
 /* INTERLUDE */
 .interlude{position:relative;height:100svh;overflow:hidden;background:radial-gradient(130% 100% at 50% 14%,#27432f,#0c1610 64%)}
 .il-glow{position:absolute;left:50%;top:40%;transform:translate(-50%,-50%);width:135%;height:72%;background:radial-gradient(closest-side,rgba(212,175,106,.26),transparent 70%);pointer-events:none}
-.il-img{position:absolute;left:50%;top:42%;transform:translate(-50%,-50%);width:76%;max-width:340px;height:auto;filter:drop-shadow(0 24px 50px rgba(0,0,0,.5));z-index:1;will-change:transform}
+.il-emblem{position:absolute;left:0;right:0;top:41%;transform:translateY(-50%);display:flex;justify-content:center;padding:0 26px;z-index:1;pointer-events:none}
+.il-img{width:74%;max-width:318px;height:auto;filter:drop-shadow(0 24px 50px rgba(0,0,0,.5));will-change:transform}
 .il-text{position:absolute;left:0;right:0;bottom:15%;text-align:center;padding:0 32px;z-index:2}
 .il-eyebrow{display:block;font-family:var(--label);letter-spacing:.34em;text-transform:uppercase;font-size:.6rem;color:rgba(236,216,164,.72);margin-bottom:14px}
 .il-line{display:block;font-family:var(--script);font-size:clamp(2.1rem,11vw,3.1rem);color:var(--gold-light);line-height:1.05;text-shadow:0 2px 24px rgba(0,0,0,.4)}
@@ -359,7 +360,7 @@ section{position:relative;overflow:hidden}
  <!-- 3 · INTERLUDE (visual beat) -->
  <section class="interlude" id="interlude">
   <div class="il-glow"></div>
-  <img class="il-img" src="__DIVINE__" alt="Lord Venkateswara and Goddess Padmavati">
+  <div class="il-emblem"><img class="il-img" src="__DIVINE__" alt="Lord Venkateswara and Goddess Padmavati"></div>
   <div class="il-text">
    <span class="il-eyebrow">with the blessings of the divine</span>
    <span class="il-line">two souls, one journey</span>
@@ -401,7 +402,7 @@ section{position:relative;overflow:hidden}
  <section class="hosts pad">
   <span class="label kin" style="display:block;margin-bottom:30px">With warm regards</span>
   <div class="host-grp reveal delay-1"><div class="role">Invited by</div><div class="nm kin">Smt. &amp; Sri Allakula Jyothi — Thirupathi</div></div>
-  <div class="host-grp reveal delay-2"><div class="role">Co-invited by</div><div class="nm kin">Smt. &amp; Sri Pothurajula Sai Deepthi — Praveen</div></div>
+  <div class="host-grp reveal delay-2"><div class="role">Co-invited by</div><div class="nm kin">Vidarth &amp; Ajith Sai</div></div>
  </section>
 
  <!-- 7 · BENEDICTION (footer) -->
@@ -507,7 +508,6 @@ section{position:relative;overflow:hidden}
   });
   /* interlude — emblem drifts, blessing rises */
   if(document.querySelector('.il-img')){
-   gsap.set('.il-img',{xPercent:-50,yPercent:-50});
    gsap.to('.il-img',{y:-46,ease:'none',scrollTrigger:{trigger:'.interlude',start:'top bottom',end:'bottom top',scrub:1}});
    gsap.from('.il-text',{opacity:0,y:30,duration:1,ease:'power2.out',scrollTrigger:{trigger:'.interlude',start:'top 62%'}});
   }
