@@ -183,20 +183,22 @@ section{position:relative;overflow:hidden}
 .knot svg{width:100%;height:100%;display:block}
 .union-emblem{display:block;width:54px;height:54px;margin:8px auto 0}
 
-/* MUHURTHAM */
-.muhurtham{background:linear-gradient(180deg,var(--green),var(--green-deep));color:var(--cream)}
-.muhurtham .label{color:var(--gold-light)}
-.muhurtham .rule{background:linear-gradient(90deg,transparent,var(--gold-light),transparent)}
-.date-hero{text-align:center;font-family:var(--serif);margin:6px 0 2px}
-.date-hero .d{font-size:clamp(3.4rem,18vw,5rem);font-weight:500;line-height:.9;color:var(--gold-bright)}
-.date-hero .m{font-family:var(--label);letter-spacing:.3em;text-transform:uppercase;font-size:.78rem;margin-top:10px;color:var(--cream)}
-.time-line{text-align:center;font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--gold-light);margin-top:14px}
-.stars{text-align:center;font-family:var(--label);letter-spacing:.16em;font-size:.74rem;color:rgba(250,245,233,.78);margin-top:16px;line-height:2}
-.countdown{display:flex;justify-content:center;gap:clamp(8px,3.5vw,18px);margin-top:38px}
+/* MUHURTHAM — pinned cinematic beat */
+.muhurtham{position:relative;height:200vh;background:linear-gradient(180deg,var(--green),var(--green-deep))}
+.mu-sticky{position:sticky;top:0;height:100svh;display:flex;align-items:center;justify-content:center;overflow:hidden;color:var(--cream)}
+.mu-glow{position:absolute;inset:0;background:radial-gradient(120% 75% at 50% 36%,rgba(212,175,106,.18),transparent 62%);pointer-events:none}
+.mu-content{position:relative;z-index:1;width:100%;max-width:var(--stage);padding:0 28px;text-align:center}
+.mu-l{display:block;font-family:var(--label);letter-spacing:.42em;text-transform:uppercase;font-size:.62rem;color:var(--gold-light);margin-bottom:26px}
+.mu-d{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(5rem,28vw,8.5rem);line-height:.82;color:var(--gold-bright);letter-spacing:-.02em}
+.mu-my{font-family:var(--label);letter-spacing:.4em;text-transform:uppercase;font-size:clamp(.82rem,4.2vw,1.1rem);color:var(--cream);margin-top:16px}
+.mu-day{font-family:var(--script);font-size:clamp(2rem,9vw,2.6rem);color:var(--gold-light);line-height:1;margin-top:4px}
+.mu-rule{width:58px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-light),transparent);margin:24px auto;transform-origin:center}
+.mu-time{font-family:var(--serif);font-style:italic;font-size:clamp(1.2rem,5.5vw,1.5rem);color:var(--cream)}
+.mu-stars{font-family:var(--label);letter-spacing:.2em;text-transform:uppercase;font-size:.64rem;color:rgba(250,245,233,.72);margin-top:14px}
+.countdown{display:flex;justify-content:center;gap:clamp(10px,4vw,20px);margin-top:34px}
 .cd{text-align:center;min-width:50px}
 .cd b{display:block;font-family:var(--serif);font-size:clamp(2rem,9vw,2.6rem);font-weight:500;color:var(--gold-bright);font-variant-numeric:tabular-nums;line-height:1}
-.cd span{font-family:var(--label);letter-spacing:.16em;text-transform:uppercase;font-size:.5rem;color:rgba(250,245,233,.65);margin-top:8px;display:block}
-.cd-sep{font-family:var(--serif);font-size:1.5rem;color:var(--gold);margin-top:.1em}
+.cd span{font-family:var(--label);letter-spacing:.16em;text-transform:uppercase;font-size:.5rem;color:rgba(250,245,233,.6);margin-top:8px;display:block}
 
 /* VENUE */
 .venue{background:var(--paper);text-align:center}
@@ -230,6 +232,7 @@ section{position:relative;overflow:hidden}
 @media(prefers-reduced-motion:reduce){
  .reveal{opacity:1;transform:none;transition:none}.scrollcue i::after{animation:none}
  .hero{height:100svh}.cream-wash,.hero-intro,.l-couple{display:none}
+ .muhurtham{height:auto}.mu-sticky{position:static;height:auto;padding:64px 0}
  .layer{transform:translateX(-50%)!important}.l-sky,.l-cows{transform:none!important}}
 </style>
 </head>
@@ -292,17 +295,26 @@ section{position:relative;overflow:hidden}
   </div>
  </section>
 
- <!-- 3 · SUMUHURTHAM -->
- <section class="muhurtham pad" id="muhurtham">
-  <div class="center"><span class="label kin">Sumuhurtham</span><div class="rule reveal delay-1"></div></div>
-  <div class="date-hero"><div class="d">03</div><div class="m kin">July 2026 · Friday</div></div>
-  <div class="time-line kin">at 8:12 in the morning</div>
-  <div class="stars reveal delay-2">Shravana Nakshatram<br>Karkataka Lagnam</div>
-  <div class="countdown reveal delay-3" id="countdown">
-   <div class="cd"><b id="cd-d">--</b><span>Days</span></div><div class="cd-sep">:</div>
-   <div class="cd"><b id="cd-h">--</b><span>Hours</span></div><div class="cd-sep">:</div>
-   <div class="cd"><b id="cd-m">--</b><span>Min</span></div><div class="cd-sep">:</div>
-   <div class="cd"><b id="cd-s">--</b><span>Sec</span></div></div>
+ <!-- 3 · SUMUHURTHAM (pinned cinematic beat) -->
+ <section class="muhurtham" id="muhurtham">
+  <div class="mu-sticky">
+   <div class="mu-glow"></div>
+   <div class="mu-content">
+    <span class="mu-l">Sumuhurtham</span>
+    <span class="mu-d">03</span>
+    <div class="mu-my">July · 2026</div>
+    <div class="mu-day">Friday</div>
+    <div class="mu-rule"></div>
+    <div class="mu-time">at 8:12 in the morning</div>
+    <div class="mu-stars">Shravana Nakshatram · Karkataka Lagnam</div>
+    <div class="countdown" id="countdown">
+     <div class="cd"><b id="cd-d">--</b><span>Days</span></div>
+     <div class="cd"><b id="cd-h">--</b><span>Hours</span></div>
+     <div class="cd"><b id="cd-m">--</b><span>Min</span></div>
+     <div class="cd"><b id="cd-s">--</b><span>Sec</span></div>
+    </div>
+   </div>
+  </div>
  </section>
 
  <!-- 4 · VENUE -->
@@ -342,7 +354,7 @@ section{position:relative;overflow:hidden}
 (function(){
  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
  var lenis=null;
- if(window.Lenis&&!reduce){lenis=new Lenis({lerp:.08,wheelMultiplier:1,touchMultiplier:1.6,smoothWheel:true});(function raf(t){lenis.raf(t);requestAnimationFrame(raf);})();}
+ if(window.Lenis&&!reduce){lenis=new Lenis({lerp:.08,wheelMultiplier:1,touchMultiplier:1.6,smoothWheel:true});(function raf(t){lenis.raf(t);requestAnimationFrame(raf);})();if(window.ScrollTrigger)lenis.on('scroll',ScrollTrigger.update);}
 
  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.16,rootMargin:'0px 0px -8% 0px'});
  document.querySelectorAll('.reveal,.soft').forEach(function(el){io.observe(el);});
@@ -395,12 +407,21 @@ section{position:relative;overflow:hidden}
    gsap.to(ws,{yPercent:0,opacity:1,duration:.7,ease:'power3.out',stagger:.055,
     scrollTrigger:{trigger:el,start:'top 88%'}});
   });
-  gsap.fromTo('.date-hero .d',{scale:.82},{scale:1,ease:'none',
-   scrollTrigger:{trigger:'.muhurtham',start:'top 80%',end:'top 42%',scrub:.6}});
-  if(document.querySelector('.cd b'))ScrollTrigger.batch('.cd b',{start:'top 90%',
-   onEnter:function(els){gsap.from(els,{y:20,opacity:0,stagger:.09,duration:.55,ease:'back.out(1.6)'});}});
-  gsap.utils.toArray('.rule').forEach(function(r){r.style.transformOrigin='center';
-   gsap.fromTo(r,{scaleX:0},{scaleX:1,ease:'none',scrollTrigger:{trigger:r,start:'top 92%',end:'top 66%',scrub:.5}});});
+  /* muhurtham — pinned date + countdown assemble as you scroll through it */
+  if(document.querySelector('.mu-d')){
+   gsap.set('.mu-l,.mu-my,.mu-day,.mu-time,.mu-stars,.countdown',{opacity:0,y:28});
+   gsap.set('.mu-d',{opacity:0,y:22,scale:.72});
+   gsap.set('.mu-rule',{opacity:0,scaleX:0});
+   gsap.timeline({scrollTrigger:{trigger:'#muhurtham',start:'top top',end:'bottom bottom',scrub:.6}})
+    .to('.mu-l',{opacity:1,y:0,duration:.4},.02)
+    .to('.mu-d',{opacity:1,y:0,scale:1,duration:.9,ease:'power2.out'},.08)
+    .to('.mu-my',{opacity:1,y:0,duration:.5},.5)
+    .to('.mu-day',{opacity:1,y:0,duration:.5},.6)
+    .to('.mu-rule',{opacity:1,scaleX:1,duration:.5},.72)
+    .to('.mu-time',{opacity:1,y:0,duration:.5},.82)
+    .to('.mu-stars',{opacity:1,y:0,duration:.5},.96)
+    .to('.countdown',{opacity:1,y:0,duration:.6},1.1);
+  }
   gsap.to('.union-emblem',{rotation:360,transformOrigin:'50% 50%',duration:90,repeat:-1,ease:'none'});
  }
 
